@@ -1,20 +1,16 @@
 import React from "react"
 
 const CandidatesCard = (props) => {
+  console.log(props)
   return (
-    <div class="col-lg-4">
-      <div class="text-center card-box">
-        <div class="member-card pt-2 pb-2">
-          <div class="thumb-lg member-thumb mx-auto">
-          </div>
-          <div class="">
-            <h4>`{props.firstName} {props.lastName}`</h4>
-            <p class="text-muted"></p>
-            <p class="text-muted">{props.interviewDate}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <figure className="bg-sky-600 w-80 h-24 shadow-xl mb-4 text-gray-50 rounded-lg md:w-96 content-center">
+      <figcaption className="text-center">
+        <p className="text-slate-200 font-semibold text-xl mb-2">
+            Nombre: {props.name} {props.lastName}
+        </p>
+        <button className="rounded-full bg-violet-700 hover:bg-violet-900 font-bold px-4 py-2">Detalles</button>
+      </figcaption>
+    </figure>
   )
 }
 

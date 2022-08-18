@@ -3,7 +3,7 @@ import {getCandidates} from './lib/api'
 import CandidatesCard from './components/CandidatesCard'
 
 function App() {
-  const [candidates, setCandidates] = useState({})
+  const [candidates, setCandidates] = useState([])
   
   useEffect(() => {
     getCandidates().then((response) => {
@@ -15,8 +15,9 @@ function App() {
   },[])
   console.log(candidates)
   return (
-    <div className="App">
-      <h1 className='text-3xl font-bold mt-4 text-center md:mt-6'>Candidatos</h1>
+    <div className="bg-blue-700 container">
+      <h1 className='text-3xl font-bold my-4 text-center md:mt-6 text-blue-400'>Candidatos</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         {candidates.map((candidate) => {
           return (
             <CandidatesCard
@@ -27,9 +28,9 @@ function App() {
             skills={candidate.skills}
             />
           )
-        })
-          
+          })
         }
+      </div>
     </div> 
   )
 }
