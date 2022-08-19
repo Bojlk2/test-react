@@ -1,19 +1,17 @@
 import {useState, useEffect} from 'react'
 import {getCandidates} from './lib/api'
 import CandidatesCard from './components/CandidatesCard'
+import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {
   const [candidates, setCandidates] = useState([])
   
   useEffect(() => {
     getCandidates().then((response) => {
-      console.log(response)
       const data = response.Items
-      console.log(data)
       setCandidates(data)
     })
   },[])
-  console.log(candidates)
   return (
     <div className="bg-blue-700 container">
       <h1 className='text-3xl font-bold my-4 text-center md:mt-6 text-blue-400'>Candidatos</h1>
